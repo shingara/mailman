@@ -20,5 +20,6 @@ doc
 pkg
 *.rbc
 .bundle
+Gemfile.lock
 
 ## PROJECT::SPECIFIC
