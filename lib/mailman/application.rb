@@ -88,7 +88,7 @@ module Mailman
       # TODO : add a configuration to create maildir with the second args of Maildir.new
       unless @maildir
         @maildir = Maildir.new(Mailman.config.maildir)
-        require 'maldir/serializer/mail'
+        require 'maildir/serializer/mail'
         @maildir.serializer = Maildir::Serializer::Mail.new
       end
 
