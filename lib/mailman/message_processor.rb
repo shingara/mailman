@@ -13,7 +13,7 @@ module Mailman
     # router.
     # @param [String] message the message to process
     def process(message)
-      mail = Mail.new(message)
+      mail = message.is_a?(Mail::Message) ? message : Mail.new(message)
       Mailman.logger.info "Got new message from '#{mail.from.first}' with subject '#{mail.subject}'."
       @router.route(mail)
     end

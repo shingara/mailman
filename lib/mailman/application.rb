@@ -70,7 +70,9 @@ module Mailman
         require 'fssm'
 
         Mailman.logger.info "Maildir receiver enabled (#{Mailman.config.maildir})."
+        require 'maildir/serializer/mail'
         @maildir = Maildir.new(Mailman.config.maildir)
+        @maildir.serializer = Maildir::Serializer::Mail.new
 
         Mailman.logger.debug "Monitoring the Maildir for new messages..."
         FSSM.monitor File.join(Mailman.config.maildir, 'new') do |monitor|
